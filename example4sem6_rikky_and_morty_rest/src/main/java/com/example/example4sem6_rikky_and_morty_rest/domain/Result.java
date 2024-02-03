@@ -3,7 +3,6 @@ package com.example.example4sem6_rikky_and_morty_rest.domain;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 public class Result {

@@ -17,6 +17,12 @@ public class RickAndMortyController {
 
     private final ServiceApi serviceApi;
 
+    /**
+     * Главная страница со всеми героями, аа также с поиском по имени
+     * @param name Имя героя
+     * @param model Модель
+     * @return Главная страница
+     */
     @GetMapping
     public String getCharacters(@RequestParam(name = "search", required = false) String name, Model model) {
         model.addAttribute("results", serviceApi.getAllCharacters(name));
@@ -24,6 +30,12 @@ public class RickAndMortyController {
         return "characters";
     }
 
+    /**
+     * Карточка героя
+     * @param id герой по id
+     * @param model Модель
+     * @return Страница с героем
+     */
     @GetMapping("/{id}")
     public String getCharacterInfo(@PathVariable Integer id, Model model) {
         Result result = serviceApi.getCharacterById(id);

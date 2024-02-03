@@ -22,7 +22,11 @@ public class ServiceApiImpl implements ServiceApi {
 
     private static final String CHARACTER_API = "https://rickandmortyapi.com/api/character";
 
-    @Override
+    /**
+     * Весь перечень героев, либо результат поиска героя по имени
+     * @param name Имя героя
+     * @return Список героев
+     */
     public List<Result> getAllCharacters(String name) {
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>(headers);
@@ -40,6 +44,11 @@ public class ServiceApiImpl implements ServiceApi {
         return results;
     }
 
+    /**
+     * Поиск героя по Id
+     * @param id
+     * @return героя
+     */
     public Result getCharacterById(Integer id) {
         List<Result> characterResult = getAllCharacters(null);
         for (Result result :
